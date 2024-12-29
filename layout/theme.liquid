@@ -1,17 +1,33 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} - {{ shop.name }}</title>
+    
+    <!-- Favicon -->
+    {% comment %} <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" type="image/x-icon"> {% endcomment %}
+  
+    {% comment %} <!-- Estilos -->
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+  
+    <!-- Scripts -->
+    
+   {{ 'script.js' | asset_url | script_tag }}
+   {% endcomment %}
 
-<html>
-  <div class="header">
-    {%  section  'header' %}
-  </div>
+    <!-- Shopify Necessário -->
+    {{ content_for_header }}
+  </head>
 
-  <div class="main-content">
-    {%  section  'hero-banner' %}
-    {% section 'featured-products' %}
-    {% section 'testimonials' %}
-  </div>
-
-  <div class="footer">
+  <body>
+    <!-- Cabeçalho -->
+    {% section 'header' %}
+  
+    <!-- Conteúdo Dinâmico -->
+    {{ content_for_layout }}
+  
+    <!-- Rodapé -->
     {% section 'footer' %}
-  </div>
-
-</html>
+  </body>
+  </html>
